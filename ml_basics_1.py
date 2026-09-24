@@ -40,10 +40,4 @@ print(iris_dataset.data_module)
 print(type(iris_dataset.data_module))
 
 
-
-
-
-
 # 'data', 'target', 'frame', 'target_names', 'DESCR', 'feature_names', 'filename', 'data_module'
-
-
