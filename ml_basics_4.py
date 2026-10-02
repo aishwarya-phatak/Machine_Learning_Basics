@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error,mean_absolute_error,r2_score
@@ -59,3 +60,13 @@ print(f"mean absolute error is : {mae}")
 
 r2 = r2_score(y_test, y_prediction)
 print(f"r2 score is : {r2}")
+
+#plot for random forest regression
+plt.figure(figsize=(6,6))
+plt.scatter(y_test, y_prediction)
+plt.plot([y_test.min(), y_test.max()],
+         [y_test.min(), y_test.max()])
+plt.xlabel("True Values")
+plt.ylabel("Predicted Values")
+plt.title("Random Forest Regressor for House Price Prediction Dataset")
+plt.show()

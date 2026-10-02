@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score,mean_squared_error
+from sklearn.metrics import r2_score,mean_squared_error,mean_absolute_error
 
 #/Users/vishaljagtap/Desktop/PCP_Python_Basics/Machine_Learning_Basics/dataset/Housing.csv  --> absolute path
 #dataset/Housing.csv     --> path from content root
@@ -57,5 +58,18 @@ print(f"mse : {mse}")
 rmse = np.sqrt(mse)
 print(f"rmse : {rmse}")
 
+mean_absolute_error = mean_absolute_error(y_test,y_pred)
+print(f"mean_absolute_error : {mean_absolute_error}")
+
 r2_score = r2_score(y_test,y_pred)
 print(f"r2_score : {r2_score}")
+
+#scatter plot for linear regression algorithm
+plt.figure(figsize=(6,6))
+plt.scatter(y_test,y_pred)
+plt.plot([y_test.min(),y_test.max()],
+         [y_test.min(),y_test.max()])
+plt.xlabel("Actual Price")
+plt.ylabel("Predicted Price")
+plt.title("Linear Regression for House Price Prediction Dataset")
+plt.show()
